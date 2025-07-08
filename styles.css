@@ -1,0 +1,213 @@
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #020202; /* A light background color */
+    color: #00838f; /* A contrasting text color */
+    padding: 80px 20px;
+    text-align: center;
+}
+#mint {
+    color: red;
+    text-decoration: none;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.headline {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.elevator-pitch {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.hero-buttons a {
+    display: inline-block;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.button.primary {
+    background-color: #00bcd4;
+    color: white;
+}
+
+.button.secondary {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.button.tertiary {
+    background-color: transparent;
+    color: #00838f;
+    border: 2px solid #00838f;
+}
+
+/* About Me Section */
+.about-me {
+    padding: 60px 20px;
+    background-color: white;
+}
+
+.about-me h2, .skills h2, .featured-projects h2, .testimonials h2, .contact-info h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #00838f;
+}
+
+/* Skills Section */
+.skills {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.skill {
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.skill-icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Featured Projects Section */
+.featured-projects {
+    padding: 60px 20px;
+    background-color: white;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.project-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.project-card h3, .project-card p {
+    padding: 15px;
+    margin: 0;
+}
+
+.view-all-button {
+    text-align: center;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 60px 20px;
+    background-color: #e0f7fa;
+    color: #00838f;
+}
+
+.testimonial-card {
+    background-color: rgb(30, 42, 75);
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Contact Info Footer */
+.contact-info {
+    background-color: #333;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact-info a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 10px;
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+/* Responsive Design (Basic) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero-buttons a {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+        text-align: center;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}

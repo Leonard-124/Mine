@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../LEO/nodejs-crash-2025/public/profile"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Profilejs"
+	}
+}

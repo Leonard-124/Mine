@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books and crockeries</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-green-100 text-gray-800">
+  <!-- Header -->
+  <header class="border-b">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <img src="./images/product10.jpg" alt="PD Logo" class="w-12 h-12">
+        <span class="text-xl font-bold">PD(We offer Quality)</span>
+      </div>
+      <div class="w-full md:w-auto flex-1 md:ml-4 mt-2 md:mt-0">
+        <input type="text" placeholder="Search products..." class="w-full px-4 py-2 border rounded">
+      </div>
+      <button class="bg-red-600 text-white px-4 py-2 rounded ml-2">Search</button>
+      <div class="flex items-center space-x-4 ml-4">
+        <a href="checkout.html" class="relative">
+          🛒
+          <span class="absolute -top-2 -right-2 text-xs bg-red-500 text-white rounded-full px-1" id="cart-count">0</span>
+        </a>
+        <span class="text-red-600 font-semibold" id="cart-total">KSh 0.00</span>
+      </div>
+    </div>
+    <nav class="bg-white shadow-md">
+      <div class="max-w-7xl mx-auto px-4 py-2 flex space-x-6 text-sm font-medium text-gray-700 hover:red"
+        <a href="#" class="hover:text-red-600">Home</a>
+        <a href="#" class="hover:text-red-600">Shop</a>
+        <a href="#" class="hover:text-red-600">Service parts</a>
+        <a href="#" class="hover:text-red-600">Free Books</a>
+        <a href="#" class="hover:text-red-600"> Accessories</a>
+        <a href="#" class="hover:text-red-600">Contact Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-4 gap-6">
+    <!-- Sidebar Categories -->
+    <aside class="hidden md:block col-span-1">
+      <h2 class="text-lg font-semibold mb-4 text-purple-700">Product categories</h2>
+      <ul class="space-y-1 text-sm text-gray-700">
+        <li><strong>Products Available</strong>
+          <ul class="ml-4 list-disc hover:underline">
+            <li>Phones</li>
+            <li>Books</li>
+            <li>Candies</li>
+            <li>Romance  books</li>
+          </ul>
+        </li>
+        <li><strong>Crockeries</strong>
+          <ul class="ml-4 list-disc hover:underline">
+            <li>Pencils</li>
+            <li>Biro pen</li>
+            <li>Spoons</li>
+            <li>Physics books</li>
+            <li>Magazenes</li>
+           
+          </ul>
+        </li>
+        <li><strong>Candies</strong>
+          <ul class="ml-4 list-disc">
+            <li>Tropical Mint</li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Products Grid -->
+    <section class="col-span-1 md:col-span-3">
+      <div class="flex justify-between items-center text-sm mb-4">
+        <p class="text-gray-600">Showing 10-28 of 388 results</p>
+        <select class="border px-2 py-1 text-sm rounded-full">
+          <option>Default sorting</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+        </select>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="product-grid"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-6 text-center text-sm text-gray-600">
+    &copy; 2025 PD(We Offer Quality). All rights reserved.
+  </footer>
+
+  <script>
+    const productGrid = document.getElementById('product-grid');
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    function updateCartUI() {
+      let total = 0;
+      let count = 0;
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+        count += item.quantity;
+      });
+      document.getElementById('cart-total').textContent = `KSh ${total.toFixed(2)}`;
+      document.getElementById('cart-count').textContent = count;
+    }
+
+    function addToCart(name, price) {
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartUI();
+    }
+
+    const productImages = [
+      "images/product1.jpg",
+      "images/product2.jpg",
+      "images/product3.jpg",
+      "images/product4.jpg",
+      "images/product5.jpg",
+      "images/product6.jpg",
+      "images/product7.jpg",
+      "images/product8.jpg",
+      "images/product9.jpg",
+      "images/product10.jpg"
+    ];
+
+    for (let i = 1; i <= 10; i++) {
+      const card = document.createElement('div');
+      card.className = "border p-4 rounded text-center bg-white";
+      const name = `Items ${i}`;
+      const price = 900 + i * 100;
+      const imagePath = productImages[i - 1];
+
+      card.innerHTML = `
+        <img src="${imagePath}" alt="${name}" class="mx-auto mb-4 w-full h-48 object-cover rounded">
+        <p class="text-xs text-gray-500">Category ${i}</p>
+        <h3 class="text-sm text-blue-900 font-semibold hover:underline cursor-pointer">${name}</h3>
+        <p class="text-red-600 font-semibold mt-1">KSh ${price.toFixed(2)}</p>
+        <button class="mt-3 px-4 py-2 bg-gray-300 text-white text-sm rounded hover:bg-gray-800">Add To Cart</button>
+      `;
+
+      card.querySelector('button').addEventListener('click', () => addToCart(name, price));
+      productGrid.appendChild(card);
+    }
+
+    updateCartUI();
+  </script>
+</body>
+</html>
