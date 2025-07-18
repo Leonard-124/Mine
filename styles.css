@@ -204,7 +204,12 @@ body {
     }
 
     .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+       /* grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));*/
+       display: block;
+       align-items: center;
+    }
+    .skill {
+        margin-top: 10px;
     }
 
     .projects-grid {
